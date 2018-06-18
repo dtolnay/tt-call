@@ -1,0 +1,10 @@
+sudo: false
+language: rust
+
+rust:
+  - nightly
+
+script:
+  - cargo test
+  - cargo run --example replace
+  - cargo run --example comma_separated
