@@ -1,0 +1,8 @@
+error: no rules expected the token `:`
+ --> $DIR/type-fn-arg-colon-eof.rs:6:20
+  |
+6 |     input = [{ fn(a:) }]
+  |                    ^
+
+error: aborting due to previous error
+

@@ -1,0 +1,8 @@
+error: no rules expected the token `->`
+ --> $DIR/type-fn-return-eof.rs:6:21
+  |
+6 |     input = [{ fn() -> }]
+  |                     ^^
+
+error: aborting due to previous error
+

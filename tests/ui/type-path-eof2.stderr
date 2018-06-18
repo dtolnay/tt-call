@@ -1,0 +1,8 @@
+error: no rules expected the token `T`
+ --> $DIR/type-path-eof2.rs:6:18
+  |
+6 |     input = [{ S<T }]
+  |                  ^
+
+error: aborting due to previous error
+

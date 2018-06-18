@@ -1,0 +1,8 @@
+error: no rules expected the token `]`
+ --> $DIR/type-slice-empty.rs:6:17
+  |
+6 |     input = [{ [] }]
+  |                 ^
+
+error: aborting due to previous error
+

@@ -1,0 +1,8 @@
+error: no rules expected the token `dyn`
+ --> $DIR/type-dyn-eof.rs:6:16
+  |
+6 |     input = [{ dyn }]
+  |                ^^^
+
+error: aborting due to previous error
+

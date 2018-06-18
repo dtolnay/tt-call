@@ -1,0 +1,8 @@
+error: no rules expected the token `@`
+ --> $DIR/type-qpath-unexpected4.rs:6:24
+  |
+6 |     input = [{ <T as F @ }]
+  |                        ^
+
+error: aborting due to previous error
+

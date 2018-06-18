@@ -1,0 +1,8 @@
+error: no rules expected the token `<`
+ --> $DIR/type-path-eof5.rs:6:19
+  |
+6 |     input = [{ S::< }]
+  |                   ^
+
+error: aborting due to previous error
+

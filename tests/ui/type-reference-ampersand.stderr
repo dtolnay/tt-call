@@ -1,0 +1,8 @@
+error: no rules expected the token `&`
+ --> $DIR/type-reference-ampersand.rs:6:16
+  |
+6 |     input = [{ & }]
+  |                ^
+
+error: aborting due to previous error
+
