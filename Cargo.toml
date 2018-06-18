@@ -1,0 +1,9 @@
+[package]
+name = "tt-call"
+version = "0.0.0"
+authors = ["David Tolnay <dtolnay@gmail.com>"]
+license = "MIT/Apache-2.0"
+description = "Token tree calling convention"
+repository = "https://github.com/dtolnay/tt-call"
+documentation = "https://docs.rs/tt-call"
+readme = "README.md"
