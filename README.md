@@ -70,7 +70,7 @@ support the 1.28.0 stable compiler when it comes out, which should be August
     arbitrary tt-call macro.
 
     Except in libraries intended specifically as tt-call building blocks,
-    generally tt-call macros will by private `#[doc(hidden)]` helpers with a
+    generally tt-call macros will be private `#[doc(hidden)]` helpers with a
     user-facing non-tt-call entry point. Thus the rigid key-value syntax
     need not be exposed to users of the public macro.
 
