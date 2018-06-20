@@ -1,5 +1,5 @@
 #[doc(hidden)]
-#[macro_export]
+#[macro_export(local_inner_macros)]
 macro_rules! private_parse_path {
     // Entry point. Dup tokens.
     {
@@ -62,7 +62,7 @@ macro_rules! private_parse_path {
 }
 
 #[doc(hidden)]
-#[macro_export]
+#[macro_export(local_inner_macros)]
 macro_rules! private_parse_possibly_empty_path_after_ident {
     // Entry point. Dup tokens.
     {
@@ -185,7 +185,7 @@ macro_rules! private_parse_possibly_empty_path_after_ident {
 }
 
 #[doc(hidden)]
-#[macro_export]
+#[macro_export(local_inner_macros)]
 macro_rules! private_parse_possibly_empty_path_after_close_angle {
     // Entry point. Dup tokens.
     {
@@ -244,7 +244,7 @@ macro_rules! private_parse_possibly_empty_path_after_close_angle {
 }
 
 #[doc(hidden)]
-#[macro_export]
+#[macro_export(local_inner_macros)]
 macro_rules! private_parse_in_angle_brackets {
     // Entry point. Dup rest tokens.
     {
@@ -369,7 +369,7 @@ macro_rules! private_parse_in_angle_brackets {
 }
 
 #[doc(hidden)]
-#[macro_export]
+#[macro_export(local_inner_macros)]
 macro_rules! private_parse_generic_param {
     // Parse lifetime parameters.
     {
@@ -441,7 +441,7 @@ macro_rules! private_parse_generic_param {
 }
 
 #[doc(hidden)]
-#[macro_export]
+#[macro_export(local_inner_macros)]
 macro_rules! private_validate_fn_path_args {
     // Function arguments are empty.
     {
@@ -503,7 +503,7 @@ macro_rules! private_validate_fn_path_args {
 }
 
 #[doc(hidden)]
-#[macro_export]
+#[macro_export(local_inner_macros)]
 macro_rules! private_parse_path_after_fn_args {
     // Entry point. Dup tokens.
     {

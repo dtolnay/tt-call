@@ -61,7 +61,7 @@
 ///     println!("{}", add_one(1));
 /// }
 /// ```
-#[macro_export]
+#[macro_export(local_inner_macros)]
 macro_rules! tt_replace {
     {
         $caller:tt
@@ -80,7 +80,7 @@ macro_rules! tt_replace {
 }
 
 #[doc(hidden)]
-#[macro_export]
+#[macro_export(local_inner_macros)]
 macro_rules! private_replace {
     // Arrived at end of input. Return to caller.
     {

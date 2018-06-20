@@ -4,9 +4,10 @@
 //! macro.
 
 #![recursion_limit = "256"]
+#![feature(use_extern_macros)]
 
-#[macro_use]
 extern crate tt_call;
+use tt_call::{parse_type, tt_call, tt_return};
 
 /// Parse comma-separated elements.
 /// <sup>**[tt-call]**</sup>

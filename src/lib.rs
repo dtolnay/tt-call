@@ -457,7 +457,7 @@ mod unexpected;
 ///     println!("{}", is_ident); // prints true or false
 /// }
 /// ```
-#[macro_export]
+#[macro_export(local_inner_macros)]
 macro_rules! tt_call {
     // Call macro and expand into the tokens of its one return value.
     {
@@ -544,7 +544,7 @@ macro_rules! tt_call {
 }
 
 #[doc(hidden)]
-#[macro_export]
+#[macro_export(local_inner_macros)]
 macro_rules! tt_identity_return {
     // Macro returned one value.
     {
@@ -621,7 +621,7 @@ macro_rules! tt_identity_return {
 ///     println!("{}", is);
 /// }
 /// ```
-#[macro_export]
+#[macro_export(local_inner_macros)]
 macro_rules! tt_return {
     {
         $caller:tt
@@ -712,7 +712,7 @@ macro_rules! private_return {
 ///     assert_eq!(3, parse_until_comma!(1 + 2, three, four));
 /// }
 /// ```
-#[macro_export]
+#[macro_export(local_inner_macros)]
 macro_rules! tt_if {
     {
         condition = [{ $condition:ident }]
@@ -778,7 +778,7 @@ macro_rules! private_if_branch {
 /// type = [{ Vec < u8 > }]
 /// rest = [{ , compressed = false }]
 /// ```
-#[macro_export]
+#[macro_export(local_inner_macros)]
 macro_rules! tt_debug {
     {
         $(

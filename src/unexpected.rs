@@ -19,7 +19,7 @@
 /// 5 |     error_unexpected! { true }
 ///   |                         ^^^^
 /// ```
-#[macro_export]
+#[macro_export(local_inner_macros)]
 macro_rules! error_unexpected {
     ($($tokens:tt)+) => {
         private_unexpected! {
@@ -56,7 +56,7 @@ macro_rules! private_unexpected {
 /// 5 |     error_eof!{}
 ///   |     ^^^^^^^^^^^^
 /// ```
-#[macro_export]
+#[macro_export(local_inner_macros)]
 macro_rules! error_eof {
     () => {
         private_eof!{}
@@ -90,7 +90,7 @@ macro_rules! private_eof {
 /// 5 |     error_unexpected_last! { aaa bbb ccc }
 ///   |                                      ^^^
 /// ```
-#[macro_export]
+#[macro_export(local_inner_macros)]
 macro_rules! error_unexpected_last {
     ($($tokens:tt)+) => {
         private_unexpected_last! {
@@ -100,7 +100,7 @@ macro_rules! error_unexpected_last {
 }
 
 #[doc(hidden)]
-#[macro_export]
+#[macro_export(local_inner_macros)]
 macro_rules! private_unexpected_last {
     ($last:tt) => {
         error_unexpected! {

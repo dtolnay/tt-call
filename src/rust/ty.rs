@@ -33,7 +33,7 @@
 /// type = [{ Vec < u8 > }]
 /// rest = [{ , compressed = false }]
 /// ```
-#[macro_export]
+#[macro_export(local_inner_macros)]
 macro_rules! parse_type {
     {
         $caller:tt
@@ -48,7 +48,7 @@ macro_rules! parse_type {
 }
 
 #[doc(hidden)]
-#[macro_export]
+#[macro_export(local_inner_macros)]
 macro_rules! private_parse_type_with_plus {
     // Entry point.
     {
@@ -141,7 +141,7 @@ macro_rules! private_parse_type_with_plus {
 }
 
 #[doc(hidden)]
-#[macro_export]
+#[macro_export(local_inner_macros)]
 macro_rules! private_parse_type {
     // First token is a nonempty bracketed group. Validate and return as slice
     // or array.
@@ -758,7 +758,7 @@ macro_rules! private_parse_type {
 }
 
 #[doc(hidden)]
-#[macro_export]
+#[macro_export(local_inner_macros)]
 macro_rules! private_parse_pointer {
     // Entry point. Dup tokens.
     {
@@ -836,7 +836,7 @@ macro_rules! private_parse_pointer {
 }
 
 #[doc(hidden)]
-#[macro_export]
+#[macro_export(local_inner_macros)]
 macro_rules! private_parse_reference {
     // Entry point. Dup tokens.
     {
@@ -927,7 +927,7 @@ macro_rules! private_parse_reference {
 }
 
 #[doc(hidden)]
-#[macro_export]
+#[macro_export(local_inner_macros)]
 macro_rules! private_parse_function {
     // Entry point. Dup tokens.
     {
@@ -1033,7 +1033,7 @@ macro_rules! private_parse_function {
 }
 
 #[doc(hidden)]
-#[macro_export]
+#[macro_export(local_inner_macros)]
 macro_rules! private_parse_poly_trait {
     // Entry point. Dup tokens.
     {
@@ -1123,7 +1123,7 @@ macro_rules! private_parse_poly_trait {
 }
 
 #[doc(hidden)]
-#[macro_export]
+#[macro_export(local_inner_macros)]
 macro_rules! private_parse_lifetime_params {
     // Entry point after parsing `<`. Dup tokens.
     {
@@ -1238,7 +1238,7 @@ macro_rules! private_parse_lifetime_params {
 }
 
 #[doc(hidden)]
-#[macro_export]
+#[macro_export(local_inner_macros)]
 macro_rules! private_validate_inside_brackets {
     // Entry point. Parse content of brackets as type.
     {
@@ -1332,7 +1332,7 @@ macro_rules! private_validate_inside_brackets {
 }
 
 #[doc(hidden)]
-#[macro_export]
+#[macro_export(local_inner_macros)]
 macro_rules! private_validate_inside_parens {
     // Entry point. Parentheses are empty.
     {
@@ -1408,7 +1408,7 @@ macro_rules! private_validate_inside_parens {
 }
 
 #[doc(hidden)]
-#[macro_export]
+#[macro_export(local_inner_macros)]
 macro_rules! private_validate_fn_args {
     // Entry point. Dup tokens.
     {

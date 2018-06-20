@@ -8,7 +8,7 @@
 /// # Output
 ///
 ///   - `is_comma = [{` either true or false `}]`
-#[macro_export]
+#[macro_export(local_inner_macros)]
 macro_rules! tt_is_comma {
     {
         $caller:tt
@@ -44,7 +44,7 @@ macro_rules! tt_is_comma {
 /// # Output
 ///
 ///   - `is_ident = [{` either true or false `}]`
-#[macro_export]
+#[macro_export(local_inner_macros)]
 macro_rules! tt_is_ident {
     {
         $caller:tt
@@ -78,7 +78,7 @@ macro_rules! tt_is_ident {
 /// # Output
 ///
 ///   - `is_lifetime = [{` either true or false `}]`
-#[macro_export]
+#[macro_export(local_inner_macros)]
 macro_rules! tt_is_lifetime {
     {
         $caller:tt

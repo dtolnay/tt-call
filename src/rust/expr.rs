@@ -1,5 +1,5 @@
 #[doc(hidden)]
-#[macro_export]
+#[macro_export(local_inner_macros)]
 macro_rules! private_parse_expr {
     // Entry point. Dup tokens.
     {
