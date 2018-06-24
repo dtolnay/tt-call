@@ -28,7 +28,7 @@ expansion for macro\_rules.
 tt-call = "1.0"
 ```
 
-*Using tt-call currently requires a nightly compiler. However, we intend to
+*Using tt-call currently requires a nightly or beta compiler. We intend to
 support the 1.28.0 stable compiler when it comes out, which should be August
 2.*
 
