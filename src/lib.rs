@@ -778,7 +778,7 @@ macro_rules! private_if_branch {
 /// type = [{ Vec < u8 > }]
 /// rest = [{ , compressed = false }]
 /// ```
-#[macro_export(local_inner_macros)]
+#[macro_export]
 macro_rules! tt_debug {
     {
         $(
