@@ -1,3 +1,47 @@
+/// Predicate that is always true.
+/// <sup>**[tt-call]**</sup>
+///
+/// # Input
+///
+///   - `input = [{` anything `}]`
+///
+/// # Output
+///
+///   - `output = [{ true }]`
+macro_rules! tt_true {
+    {
+        $caller:tt
+        input = [{ $($in:tt)* }]
+    } => {
+        tt_return! {
+            $caller
+            output = [{ true }]
+        }
+    }
+}
+
+/// Predicate that is always false.
+/// <sup>**[tt-call]**</sup>
+///
+/// # Input
+///
+///   - `input = [{` anything `}]`
+///
+/// # Output
+///
+///   - `output = [{ false }]`
+macro_rules! tt_false {
+    {
+        $caller:tt
+        input = [{ $($in:tt)* }]
+    } => {
+        tt_return! {
+            $caller
+            output = [{ false }]
+        }
+    }
+}
+
 /// Predicate that accepts a single token and determines whether it is a comma.
 /// <sup>**[tt-call]**</sup>
 ///
