@@ -8,6 +8,7 @@
 /// # Output
 ///
 ///   - `output = [{ true }]`
+#[macro_export(local_inner_macros)]
 macro_rules! tt_true {
     {
         $caller:tt
@@ -30,6 +31,7 @@ macro_rules! tt_true {
 /// # Output
 ///
 ///   - `output = [{ false }]`
+#[macro_export(local_inner_macros)]
 macro_rules! tt_false {
     {
         $caller:tt
