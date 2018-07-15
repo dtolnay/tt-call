@@ -461,12 +461,12 @@ mod unexpected;
 macro_rules! tt_call {
     // Call macro and expand into the tokens of its one return value.
     {
-        macro = [{ $m:ident }]
+        macro = [{ $($m:ident)::* }]
         $(
             $input:ident = [{ $($tokens:tt)* }]
         )*
     } => {
-        $m! {
+        $($m)::* ! {
             (__tt_call_private tt_identity_return! {})
             $(
                 $input = [{ $($tokens)* }]
@@ -476,14 +476,14 @@ macro_rules! tt_call {
 
     // Call macro and pass its return values to the given return destination.
     {
-        macro = [{ $m:ident }]
+        macro = [{ $($m:ident)::* }]
         $(
             $input:ident = [{ $($tokens:tt)* }]
         )*
-        ~~> $return:ident
+        ~~> $($return:ident)::*
     } => {
-        $m! {
-            (__tt_call_private $return ! {})
+        $($m)::* ! {
+            (__tt_call_private $($return)::* ! {})
             $(
                 $input = [{ $($tokens)* }]
             )*
@@ -493,18 +493,18 @@ macro_rules! tt_call {
     // Call macro and append its return values onto the invocation of the given
     // return destination without caller.
     {
-        macro = [{ $m:ident }]
+        macro = [{ $($m:ident)::* }]
         $(
             $input:ident = [{ $($tokens:tt)* }]
         )*
-        ~~> $return:ident ! {
+        ~~> $($return:ident)::* ! {
             $(
                 $name:ident = [{ $($state:tt)* }]
             )*
         }
     } => {
-        $m! {
-            (__tt_call_private $return! {
+        $($m)::* ! {
+            (__tt_call_private $($return)::* ! {
                 $(
                     $name = [{ $($state)* }]
                 )*
@@ -518,19 +518,19 @@ macro_rules! tt_call {
     // Call macro and append its return values onto the invocation of the given
     // return destination with caller.
     {
-        macro = [{ $m:ident }]
+        macro = [{ $($m:ident)::* }]
         $(
             $input:ident = [{ $($tokens:tt)* }]
         )*
-        ~~> $return:ident ! {
+        ~~> $($return:ident)::* ! {
             $caller:tt
             $(
                 $name:ident = [{ $($state:tt)* }]
             )*
         }
     } => {
-        $m! {
-            (__tt_call_private $return! {
+        $($m)::* ! {
+            (__tt_call_private $($return)::* ! {
                 $caller
                 $(
                     $name = [{ $($state)* }]
@@ -642,10 +642,10 @@ macro_rules! tt_return {
 #[macro_export]
 macro_rules! private_return {
     {
-        (__tt_call_private $caller:ident ! { $($state:tt)* })
+        (__tt_call_private $($caller:ident)::* ! { $($state:tt)* })
         $($append:tt)*
     } => {
-        $caller! {
+        $($caller)::* ! {
             $($state)*
             $($append)*
         }
@@ -715,13 +715,13 @@ macro_rules! private_return {
 #[macro_export(local_inner_macros)]
 macro_rules! tt_if {
     {
-        condition = [{ $condition:ident }]
+        condition = [{ $($condition:ident)::* }]
         input = [{ $($input:tt)* }]
         true = [{ $($then:tt)* }]
         false = [{ $($else:tt)* }]
     } => {
         tt_call! {
-            macro = [{ $condition }]
+            macro = [{ $($condition)::* }]
             input = [{ $($input)* }]
             ~~> private_if_branch! {
                 true = [{ $($then)* }]

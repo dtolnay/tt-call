@@ -65,13 +65,13 @@
 macro_rules! tt_replace {
     {
         $caller:tt
-        condition = [{ $condition:ident }]
+        condition = [{ $($condition:ident)::* }]
         replace_with = [{ $($with:tt)* }]
         input = [{ $($input:tt)* }]
     } => {
         private_replace! {
             $caller
-            condition = [{ $condition }]
+            condition = [{ $($condition)::* }]
             replace_with = [{ $($with)* }]
             tokens = [{ }]
             rest = [{ $($input)* }]
@@ -85,7 +85,7 @@ macro_rules! private_replace {
     // Arrived at end of input. Return to caller.
     {
         $caller:tt
-        condition = [{ $condition:ident }]
+        condition = [{ $($condition:ident)::* }]
         replace_with = [{ $($with:tt)* }]
         tokens = [{ $($tokens:tt)* }]
         rest = [{ }]
@@ -99,20 +99,20 @@ macro_rules! private_replace {
     // Next token tree is a parenthesized group. Recurse to replace contents.
     {
         $caller:tt
-        condition = [{ $condition:ident }]
+        condition = [{ $($condition:ident)::* }]
         replace_with = [{ $($with:tt)* }]
         tokens = [{ $($tokens:tt)* }]
         rest = [{ ( $($group:tt)* ) $($rest:tt)* }]
     } => {
         tt_call! {
             macro = [{ private_replace }]
-            condition = [{ $condition }]
+            condition = [{ $($condition)::* }]
             replace_with = [{ $($with)* }]
             tokens = [{ }]
             rest = [{ $($group)* }]
             ~~> private_replace! {
                 $caller
-                condition = [{ $condition }]
+                condition = [{ $($condition)::* }]
                 replace_with = [{ $($with)* }]
                 tokens = [{ $($tokens)* }]
                 after_paren = [{ $($rest)* }]
@@ -123,7 +123,7 @@ macro_rules! private_replace {
     // Return from replacing contents of parenthesized group.
     {
         $caller:tt
-        condition = [{ $condition:ident }]
+        condition = [{ $($condition:ident)::* }]
         replace_with = [{ $($with:tt)* }]
         tokens = [{ $($tokens:tt)* }]
         after_paren = [{ $($after:tt)* }]
@@ -131,7 +131,7 @@ macro_rules! private_replace {
     } => {
         private_replace! {
             $caller
-            condition = [{ $condition }]
+            condition = [{ $($condition)::* }]
             replace_with = [{ $($with)* }]
             tokens = [{ $($tokens)* ( $($inside)* ) }]
             rest = [{ $($after)* }]
@@ -141,20 +141,20 @@ macro_rules! private_replace {
     // Next token tree is a square bracketed group. Recurse to replace contents.
     {
         $caller:tt
-        condition = [{ $condition:ident }]
+        condition = [{ $($condition:ident)::* }]
         replace_with = [{ $($with:tt)* }]
         tokens = [{ $($tokens:tt)* }]
         rest = [{ [ $($group:tt)* ] $($rest:tt)* }]
     } => {
         tt_call! {
             macro = [{ private_replace }]
-            condition = [{ $condition }]
+            condition = [{ $($condition)::* }]
             replace_with = [{ $($with)* }]
             tokens = [{ }]
             rest = [{ $($group)* }]
             ~~> private_replace! {
                 $caller
-                condition = [{ $condition }]
+                condition = [{ $($condition)::* }]
                 replace_with = [{ $($with)* }]
                 tokens = [{ $($tokens)* }]
                 after_bracket = [{ $($rest)* }]
@@ -165,7 +165,7 @@ macro_rules! private_replace {
     // Return from replacing contents of square bracketed group.
     {
         $caller:tt
-        condition = [{ $condition:ident }]
+        condition = [{ $($condition:ident)::* }]
         replace_with = [{ $($with:tt)* }]
         tokens = [{ $($tokens:tt)* }]
         after_bracket = [{ $($after:tt)* }]
@@ -173,7 +173,7 @@ macro_rules! private_replace {
     } => {
         private_replace! {
             $caller
-            condition = [{ $condition }]
+            condition = [{ $($condition)::* }]
             replace_with = [{ $($with)* }]
             tokens = [{ $($tokens)* [ $($inside)* ] }]
             rest = [{ $($after)* }]
@@ -183,20 +183,20 @@ macro_rules! private_replace {
     // Next token tree is a curly braced group. Recurse to replace contents.
     {
         $caller:tt
-        condition = [{ $condition:ident }]
+        condition = [{ $($condition:ident)::* }]
         replace_with = [{ $($with:tt)* }]
         tokens = [{ $($tokens:tt)* }]
         rest = [{ { $($group:tt)* } $($rest:tt)* }]
     } => {
         tt_call! {
             macro = [{ private_replace }]
-            condition = [{ $condition }]
+            condition = [{ $($condition)::* }]
             replace_with = [{ $($with)* }]
             tokens = [{ }]
             rest = [{ $($group)* }]
             ~~> private_replace! {
                 $caller
-                condition = [{ $condition }]
+                condition = [{ $($condition)::* }]
                 replace_with = [{ $($with)* }]
                 tokens = [{ $($tokens)* }]
                 after_brace = [{ $($rest)* }]
@@ -207,7 +207,7 @@ macro_rules! private_replace {
     // Return from replacing contents of curly braced group.
     {
         $caller:tt
-        condition = [{ $condition:ident }]
+        condition = [{ $($condition:ident)::* }]
         replace_with = [{ $($with:tt)* }]
         tokens = [{ $($tokens:tt)* }]
         after_brace = [{ $($after:tt)* }]
@@ -215,7 +215,7 @@ macro_rules! private_replace {
     } => {
         private_replace! {
             $caller
-            condition = [{ $condition }]
+            condition = [{ $($condition)::* }]
             replace_with = [{ $($with)* }]
             tokens = [{ $($tokens)* { $($inside)* } }]
             rest = [{ $($after)* }]
@@ -225,18 +225,18 @@ macro_rules! private_replace {
     // Next token is not a group, invoke condition and continue.
     {
         $caller:tt
-        condition = [{ $condition:ident }]
+        condition = [{ $($condition:ident)::* }]
         replace_with = [{ $($with:tt)* }]
         tokens = [{ $($tokens:tt)* }]
         rest = [{ $first:tt $($rest:tt)* }]
     } => {
         tt_if! {
-            condition = [{ $condition }]
+            condition = [{ $($condition)::* }]
             input = [{ $first }]
             true = [{
                 private_replace! {
                     $caller
-                    condition = [{ $condition }]
+                    condition = [{ $($condition)::* }]
                     replace_with = [{ $($with)* }]
                     tokens = [{ $($tokens)* $($with)* }]
                     rest = [{ $($rest)* }]
@@ -245,7 +245,7 @@ macro_rules! private_replace {
             false = [{
                 private_replace! {
                     $caller
-                    condition = [{ $condition }]
+                    condition = [{ $($condition)::* }]
                     replace_with = [{ $($with)* }]
                     tokens = [{ $($tokens)* $first }]
                     rest = [{ $($rest)* }]
