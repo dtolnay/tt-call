@@ -11,3 +11,6 @@ readme = "README.md"
 [dev-dependencies]
 compiletest_rs = "0.3"
 syn = { version = "0.14", features = ["extra-traits"] }
+
+[badges]
+travis-ci = { repository = "dtolnay/tt-call" }
