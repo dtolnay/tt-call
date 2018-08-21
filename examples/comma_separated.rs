@@ -4,7 +4,6 @@
 //! macro.
 
 #![recursion_limit = "256"]
-#![feature(use_extern_macros)]
 
 extern crate tt_call;
 use tt_call::{parse_type, tt_call, tt_return};

@@ -1,5 +1,4 @@
 #![recursion_limit = "4096"]
-#![feature(use_extern_macros)]
 
 extern crate syn;
 extern crate tt_call;
