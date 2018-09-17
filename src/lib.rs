@@ -21,9 +21,8 @@
 //! tt-call = "1.0"
 //! ```
 //!
-//! *Using tt-call currently requires a nightly or beta compiler. We intend to
-//! support the 1.28.0 stable compiler when it comes out, which should be August
-//! 2.*
+//! *Version requirement: tt-call requires a Rust compiler version 1.28 or
+//! newer.*
 //!
 //!
 //! ## Calling convention rules
