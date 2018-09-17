@@ -1,10 +1,19 @@
-sudo: false
 language: rust
 
-rust:
-  - nightly
-
-script:
-  - cargo test
-  - cargo run --example replace
-  - cargo run --example comma_separated
+matrix:
+  include:
+    - rust: nightly
+      script:
+        - cargo test
+        - cargo test --manifest-path ui/Cargo.toml
+        - cargo run --example replace
+        - cargo run --example comma_separated
+    - rust: beta
+      script:
+        - cargo test --test test_stable
+    - rust: stable
+      script:
+        - cargo test --test test_stable
+    - rust: 1.28.0
+      script:
+        - cargo test --test test_stable
