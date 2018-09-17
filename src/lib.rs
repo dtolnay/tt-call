@@ -786,11 +786,12 @@ macro_rules! tt_debug {
     } => {
         $(
             println!(
+                "{}",
                 concat!(
                     stringify!($output),
-                    " = [{{ ",
+                    " = [{ ",
                     stringify!($($tokens)*),
-                    " }}]",
+                    " }]",
                 )
             );
         )*
