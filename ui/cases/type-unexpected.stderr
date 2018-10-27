@@ -2,7 +2,7 @@ error: no rules expected the token `@`
  --> $DIR/type-unexpected.rs:6:16
   |
 6 |     input = [{ @ }]
-  |                ^
+  |                ^ no rules expected the token `@`
 
 error: aborting due to previous error
 

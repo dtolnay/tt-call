@@ -2,7 +2,7 @@ error: no rules expected the token `mut`
  --> $DIR/type-reference-mut.rs:6:17
   |
 6 |     input = [{ &mut }]
-  |                 ^^^
+  |                 ^^^ no rules expected the token `mut`
 
 error: aborting due to previous error
 

@@ -2,7 +2,7 @@ error: no rules expected the token `mutable`
  --> $DIR/type-pointer-unexpected.rs:6:17
   |
 6 |     input = [{ *mutable }]
-  |                 ^^^^^^^
+  |                 ^^^^^^^ no rules expected the token `mutable`
 
 error: aborting due to previous error
 

@@ -2,7 +2,7 @@ error: no rules expected the token `::`
  --> $DIR/type-qpath-eof6.rs:6:24
   |
 6 |     input = [{ <T as F>:: }]
-  |                        ^^
+  |                        ^^ no rules expected the token `::`
 
 error: aborting due to previous error
 

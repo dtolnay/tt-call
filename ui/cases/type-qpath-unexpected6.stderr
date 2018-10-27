@@ -2,7 +2,7 @@ error: no rules expected the token `@`
  --> $DIR/type-qpath-unexpected6.rs:6:27
   |
 6 |     input = [{ <T as F>:: @ }]
-  |                           ^
+  |                           ^ no rules expected the token `@`
 
 error: aborting due to previous error
 

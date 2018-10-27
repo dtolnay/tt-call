@@ -2,7 +2,7 @@ error: no rules expected the token `f`
  --> $DIR/type-fn-unexpected.rs:6:19
   |
 6 |     input = [{ fn f }]
-  |                   ^
+  |                   ^ no rules expected the token `f`
 
 error: aborting due to previous error
 
