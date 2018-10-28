@@ -9,5 +9,5 @@ name = "tt-call-tests"
 path = "main.rs"
 
 [dev-dependencies]
-compiletest_rs = "0.3"
+compiletest_rs = { version = "0.3", features = ["stable"] }
 tt-call = { path = ".." }
