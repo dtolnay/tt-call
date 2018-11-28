@@ -2,7 +2,7 @@ error: no rules expected the token `const`
  --> $DIR/type-pointer-eof.rs:6:17
   |
 6 |     input = [{ *const }]
-  |                 ^^^^^ no rules expected the token `const`
+  |                 ^^^^^ no rules expected this token in macro call
 
 error: aborting due to previous error
 

@@ -2,7 +2,7 @@ error: no rules expected the token `'a`
  --> $DIR/type-reference-lifetime.rs:6:17
   |
 6 |     input = [{ &'a }]
-  |                 ^^ no rules expected the token `'a`
+  |                 ^^ no rules expected this token in macro call
 
 error: aborting due to previous error
 

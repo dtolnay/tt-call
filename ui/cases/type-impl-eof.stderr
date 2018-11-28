@@ -2,7 +2,7 @@ error: no rules expected the token `impl`
  --> $DIR/type-impl-eof.rs:6:16
   |
 6 |     input = [{ impl }]
-  |                ^^^^ no rules expected the token `impl`
+  |                ^^^^ no rules expected this token in macro call
 
 error: aborting due to previous error
 

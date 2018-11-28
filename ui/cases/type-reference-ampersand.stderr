@@ -2,7 +2,7 @@ error: no rules expected the token `&`
  --> $DIR/type-reference-ampersand.rs:6:16
   |
 6 |     input = [{ & }]
-  |                ^ no rules expected the token `&`
+  |                ^ no rules expected this token in macro call
 
 error: aborting due to previous error
 

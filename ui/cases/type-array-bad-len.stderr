@@ -2,7 +2,7 @@ error: no rules expected the token `@`
  --> $DIR/type-array-bad-len.rs:6:20
   |
 6 |     input = [{ [T; @] }]
-  |                    ^ no rules expected the token `@`
+  |                    ^ no rules expected this token in macro call
 
 error: aborting due to previous error
 

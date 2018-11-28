@@ -2,7 +2,7 @@ error: no rules expected the token `T`
  --> $DIR/type-path-eof2.rs:6:18
   |
 6 |     input = [{ S<T }]
-  |                  ^ no rules expected the token `T`
+  |                  ^ no rules expected this token in macro call
 
 error: aborting due to previous error
 
