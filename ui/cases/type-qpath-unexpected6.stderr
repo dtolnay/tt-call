@@ -1,7 +1,7 @@
 error: no rules expected the token `@`
- --> $DIR/type-qpath-unexpected6.rs:6:27
+ --> $DIR/type-qpath-unexpected6.rs:5:27
   |
-6 |     input = [{ <T as F>:: @ }]
+5 |     input = [{ <T as F>:: @ }]
   |                           ^ no rules expected this token in macro call
 
 error: aborting due to previous error

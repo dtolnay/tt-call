@@ -1,7 +1,7 @@
 error: no rules expected the token `]`
- --> $DIR/type-array-no-len.rs:6:20
+ --> $DIR/type-array-no-len.rs:5:20
   |
-6 |     input = [{ [T; ] }]
+5 |     input = [{ [T; ] }]
   |                    ^ no rules expected this token in macro call
 
 error: aborting due to previous error

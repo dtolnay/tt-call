@@ -1,7 +1,7 @@
 error: no rules expected the token `mut`
- --> $DIR/type-reference-mut.rs:6:17
+ --> $DIR/type-reference-mut.rs:5:17
   |
-6 |     input = [{ &mut }]
+5 |     input = [{ &mut }]
   |                 ^^^ no rules expected this token in macro call
 
 error: aborting due to previous error

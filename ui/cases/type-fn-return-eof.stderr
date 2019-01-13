@@ -1,7 +1,7 @@
 error: no rules expected the token `->`
- --> $DIR/type-fn-return-eof.rs:6:21
+ --> $DIR/type-fn-return-eof.rs:5:21
   |
-6 |     input = [{ fn() -> }]
+5 |     input = [{ fn() -> }]
   |                     ^^ no rules expected this token in macro call
 
 error: aborting due to previous error

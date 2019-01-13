@@ -1,5 +1,4 @@
-#[macro_use]
-extern crate tt_call;
+use tt_call::{parse_type, tt_call};
 
 tt_call! {
     macro = [{ parse_type }]

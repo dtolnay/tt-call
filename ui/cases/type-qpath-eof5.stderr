@@ -1,7 +1,7 @@
 error: no rules expected the token `>`
- --> $DIR/type-qpath-eof5.rs:6:23
+ --> $DIR/type-qpath-eof5.rs:5:23
   |
-6 |     input = [{ <T as F> }]
+5 |     input = [{ <T as F> }]
   |                       ^ no rules expected this token in macro call
 
 error: aborting due to previous error

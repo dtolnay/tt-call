@@ -1,7 +1,7 @@
 error: no rules expected the token `const`
- --> $DIR/type-pointer-eof.rs:6:17
+ --> $DIR/type-pointer-eof.rs:5:17
   |
-6 |     input = [{ *const }]
+5 |     input = [{ *const }]
   |                 ^^^^^ no rules expected this token in macro call
 
 error: aborting due to previous error

@@ -1,10 +1,15 @@
 #[test]
 fn ui() {
-    extern crate compiletest_rs as compiletest;
-
     let mut config = compiletest::Config {
         mode: compiletest::common::Mode::Ui,
         src_base: std::path::PathBuf::from("cases"),
+        target_rustcflags: Some(String::from(
+            "\
+             --edition=2018 \
+             -Z unstable-options \
+             --extern tt_call \
+             ",
+        )),
         ..Default::default()
     };
 

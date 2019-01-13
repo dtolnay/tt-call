@@ -1,7 +1,7 @@
 error: no rules expected the token `,`
- --> $DIR/type-path-eof3.rs:6:19
+ --> $DIR/type-path-eof3.rs:5:19
   |
-6 |     input = [{ S<T, }]
+5 |     input = [{ S<T, }]
   |                   ^ no rules expected this token in macro call
 
 error: aborting due to previous error

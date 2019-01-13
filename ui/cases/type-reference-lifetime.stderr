@@ -1,7 +1,7 @@
 error: no rules expected the token `'a`
- --> $DIR/type-reference-lifetime.rs:6:17
+ --> $DIR/type-reference-lifetime.rs:5:17
   |
-6 |     input = [{ &'a }]
+5 |     input = [{ &'a }]
   |                 ^^ no rules expected this token in macro call
 
 error: aborting due to previous error

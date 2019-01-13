@@ -1,7 +1,7 @@
 error: no rules expected the token `@`
- --> $DIR/type-fn-arg-unexpected.rs:6:19
+ --> $DIR/type-fn-arg-unexpected.rs:5:19
   |
-6 |     input = [{ fn(@) }]
+5 |     input = [{ fn(@) }]
   |                   ^ no rules expected this token in macro call
 
 error: aborting due to previous error

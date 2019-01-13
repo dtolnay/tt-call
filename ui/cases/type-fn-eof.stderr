@@ -1,7 +1,7 @@
 error: no rules expected the token `fn`
- --> $DIR/type-fn-eof.rs:6:16
+ --> $DIR/type-fn-eof.rs:5:16
   |
-6 |     input = [{ fn }]
+5 |     input = [{ fn }]
   |                ^^ no rules expected this token in macro call
 
 error: aborting due to previous error

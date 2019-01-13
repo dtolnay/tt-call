@@ -1,7 +1,7 @@
 error: no rules expected the token `@`
- --> $DIR/type-unexpected.rs:6:16
+ --> $DIR/type-unexpected.rs:5:16
   |
-6 |     input = [{ @ }]
+5 |     input = [{ @ }]
   |                ^ no rules expected this token in macro call
 
 error: aborting due to previous error
