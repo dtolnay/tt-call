@@ -13,6 +13,3 @@ syn = { version = "0.15", features = ["extra-traits"] }
 
 [badges]
 travis-ci = { repository = "dtolnay/tt-call" }
-
-[workspace]
-members = ["ui"]
