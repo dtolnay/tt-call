@@ -10,6 +10,7 @@ fn ui() {
              --extern tt_call \
              ",
         )),
+        build_base: std::path::PathBuf::from("target/ui"),
         ..Default::default()
     };
 
