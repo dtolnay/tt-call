@@ -9,11 +9,7 @@ matrix:
         - cargo run --example replace
         - cargo run --example comma_separated
     - rust: beta
-      script:
-        - cargo test --test test_stable
     - rust: stable
-      script:
-        - cargo test --test test_stable
     - rust: 1.31.0
-      script:
-        - cargo test --test test_stable
+
+script: cargo test
