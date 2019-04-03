@@ -20,8 +20,7 @@
 /// # Example
 ///
 /// ```rust
-/// #[macro_use]
-/// extern crate tt_call;
+/// use tt_call::{tt_call, tt_replace, tt_return};
 ///
 /// macro_rules! is_lowercase_self {
 ///     {

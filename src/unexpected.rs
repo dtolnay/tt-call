@@ -4,8 +4,7 @@
 /// user.
 ///
 /// ```rust,ignore
-/// #[macro_use]
-/// extern crate tt_call;
+/// use tt_call::error_unexpected;
 ///
 /// fn main() {
 ///     error_unexpected! { true }
@@ -41,8 +40,7 @@ macro_rules! private_unexpected {
 /// an error could reasonably be triggered.
 ///
 /// ```rust,ignore
-/// #[macro_use]
-/// extern crate tt_call;
+/// use tt_call::error_eof;
 ///
 /// fn main() {
 ///     error_eof!{}
@@ -75,8 +73,7 @@ macro_rules! private_eof {
 /// user.
 ///
 /// ```rust,ignore
-/// #[macro_use]
-/// extern crate tt_call;
+/// use tt_call::error_unexpected_last;
 ///
 /// fn main() {
 ///     error_unexpected_last! { aaa bbb ccc }

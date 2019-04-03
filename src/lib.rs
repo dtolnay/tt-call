@@ -380,8 +380,7 @@ mod unexpected;
 /// # Examples
 ///
 /// ```rust
-/// #[macro_use]
-/// extern crate tt_call;
+/// use tt_call::{tt_call, tt_is_ident};
 ///
 /// macro_rules! print_is_ident {
 ///     {
@@ -414,8 +413,7 @@ mod unexpected;
 /// destination macro, then the `!` and argument list may be omitted.
 ///
 /// ```rust
-/// #[macro_use]
-/// extern crate tt_call;
+/// use tt_call::{tt_call, tt_is_ident};
 ///
 /// macro_rules! print_is_ident {
 ///     {
@@ -445,8 +443,7 @@ mod unexpected;
 /// entirely.
 ///
 /// ```rust
-/// #[macro_use]
-/// extern crate tt_call;
+/// use tt_call::{tt_call, tt_is_ident};
 ///
 /// fn main() {
 ///     let is_ident = tt_call! {
@@ -585,8 +582,7 @@ macro_rules! tt_identity_return {
 /// # Example
 ///
 /// ```rust
-/// #[macro_use]
-/// extern crate tt_call;
+/// use tt_call::{tt_call, tt_return};
 ///
 /// macro_rules! is_lowercase_self {
 ///     // Input token is `self`.
@@ -668,8 +664,7 @@ macro_rules! private_return {
 /// # Example
 ///
 /// ```rust
-/// #[macro_use]
-/// extern crate tt_call;
+/// use tt_call::{tt_call, tt_if, tt_is_comma, tt_return};
 ///
 /// macro_rules! parse_until_comma {
 ///     ($($input:tt)*) => {
@@ -759,8 +754,7 @@ macro_rules! private_if_branch {
 /// # Example
 ///
 /// ```rust
-/// #[macro_use]
-/// extern crate tt_call;
+/// use tt_call::{parse_type, tt_call, tt_debug};
 ///
 /// fn main() {
 ///     tt_call! {
