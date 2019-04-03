@@ -335,13 +335,9 @@
 
 #![doc(html_root_url = "https://docs.rs/tt-call/1.0.4")]
 
-#[macro_use]
 mod predicate;
-#[macro_use]
 mod replace;
-#[macro_use]
 mod rust;
-#[macro_use]
 mod unexpected;
 
 // In general it is not possible today in Rust to produce good error messages
