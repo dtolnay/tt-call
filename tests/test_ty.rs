@@ -1,8 +1,5 @@
 #![recursion_limit = "4096"]
 
-extern crate syn;
-extern crate tt_call;
-
 use syn::Type;
 use tt_call::{parse_type, tt_call};
 

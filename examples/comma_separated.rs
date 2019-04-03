@@ -5,7 +5,6 @@
 
 #![recursion_limit = "256"]
 
-extern crate tt_call;
 use tt_call::{parse_type, tt_call, tt_return};
 
 /// Parse comma-separated elements.

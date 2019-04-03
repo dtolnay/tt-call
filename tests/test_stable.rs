@@ -1,11 +1,7 @@
 #![recursion_limit = "4096"]
 
-#[macro_use]
-extern crate tt_call;
-
-extern crate syn;
-
 use syn::Type;
+use tt_call::{parse_type, tt_call};
 
 macro_rules! assert_type {
     ($($tokens:tt)*) => {

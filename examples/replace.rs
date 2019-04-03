@@ -1,7 +1,6 @@
 //! This example demonstrates use of `tt_replace!` to implement a fanciful
 //! syntax for unary closures.
 
-extern crate tt_call;
 use tt_call::{tt_call, tt_replace, tt_return};
 
 /// Predicate that determines whether the input is the token `self`.
