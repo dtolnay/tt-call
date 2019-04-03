@@ -14,7 +14,7 @@
 ///
 /// # Example
 ///
-/// ```rust
+/// ```
 /// use tt_call::{parse_type, tt_call, tt_debug};
 ///
 /// fn main() {

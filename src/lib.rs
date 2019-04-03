@@ -29,7 +29,7 @@
 //!
 //! - **Macros that conform to tt-call must be invoked with curly braces.**
 //!
-//!     ```rust
+//!     ```
 //!     # macro_rules! some_macro {
 //!     #     () => {};
 //!     # }
@@ -56,7 +56,7 @@
 //! - **Input and output values must be passed in the following key-value
 //!   form.**
 //!
-//!     ```rust
+//!     ```
 //!     # macro_rules! some_macro {
 //!     #     {
 //!     $key:ident = [{ $($value:tt)* }]
@@ -106,7 +106,7 @@
 //! [`tt_replace!`]: macro.tt_replace.html
 //! [`tt_if!`]: macro.tt_if.html
 //!
-//! ```rust
+//! ```
 //! # macro_rules! ignore {
 //! {
 //!     $caller:tt
@@ -145,7 +145,7 @@
 //! the tt-muncher has reached the end of its input. It returns the finished
 //! tokens back to the caller using `tt_return!`.
 //!
-//! ```rust
+//! ```
 //! # macro_rules! ignore {
 //! {
 //!     $caller:tt
@@ -166,7 +166,7 @@
 //! written as follows. This predicate determines whether the input token is
 //! lowercase `self`.
 //!
-//! ```rust
+//! ```
 //! macro_rules! is_lowercase_self {
 //!     // Input token is `self`.
 //!     {
@@ -200,7 +200,7 @@
 //! calling convention. Internally though it uses several tt-call helpers as
 //! building blocks.
 //!
-//! ```rust
+//! ```
 //! # macro_rules! tt_call {
 //! #     ($($ignore:tt)*) => {
 //! #         2
@@ -231,7 +231,7 @@
 //! calls. After all, couldn't we write `is_lowercase_self` in a much more
 //! straightforward way as follows?
 //!
-//! ```rust
+//! ```
 //! macro_rules! is_lowercase_self {
 //!     (self) => { true };
 //!     ($other:tt) => { false };
@@ -300,7 +300,7 @@
 //!   name mangling of Rust types. It uses [`parse_type!`] which is a tt-call
 //!   version of `$:ty`.
 //!
-//!     ```rust
+//!     ```
 //!     # macro_rules! mangle_type_names {
 //!     #     ($($ignore:tt)*) => {
 //!     #         &[
@@ -379,7 +379,7 @@ mod unexpected;
 ///
 /// # Examples
 ///
-/// ```rust
+/// ```
 /// use tt_call::{tt_call, tt_is_ident};
 ///
 /// macro_rules! print_is_ident {
@@ -412,7 +412,7 @@ mod unexpected;
 /// If the invoked macro provides the entirety of the input to the return
 /// destination macro, then the `!` and argument list may be omitted.
 ///
-/// ```rust
+/// ```
 /// use tt_call::{tt_call, tt_is_ident};
 ///
 /// macro_rules! print_is_ident {
@@ -442,7 +442,7 @@ mod unexpected;
 /// to expand to that output value, the destination macro may be omitted
 /// entirely.
 ///
-/// ```rust
+/// ```
 /// use tt_call::{tt_call, tt_is_ident};
 ///
 /// fn main() {
@@ -581,7 +581,7 @@ macro_rules! tt_identity_return {
 ///
 /// # Example
 ///
-/// ```rust
+/// ```
 /// use tt_call::{tt_call, tt_return};
 ///
 /// macro_rules! is_lowercase_self {
@@ -663,7 +663,7 @@ macro_rules! private_return {
 ///
 /// # Example
 ///
-/// ```rust
+/// ```
 /// use tt_call::{tt_call, tt_if, tt_is_comma, tt_return};
 ///
 /// macro_rules! parse_until_comma {
@@ -753,7 +753,7 @@ macro_rules! private_if_branch {
 ///
 /// # Example
 ///
-/// ```rust
+/// ```
 /// use tt_call::{parse_type, tt_call, tt_debug};
 ///
 /// fn main() {

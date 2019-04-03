@@ -19,7 +19,7 @@
 ///
 /// # Example
 ///
-/// ```rust
+/// ```
 /// use tt_call::{tt_call, tt_replace, tt_return};
 ///
 /// macro_rules! is_lowercase_self {
