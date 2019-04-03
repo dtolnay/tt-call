@@ -3,7 +3,7 @@
 /// The compiler's error will indicate the source of the unexpected token to the
 /// user.
 ///
-/// ```rust,ignore
+/// ```rust,compile_fail
 /// use tt_call::error_unexpected;
 ///
 /// fn main() {
@@ -39,7 +39,7 @@ macro_rules! private_unexpected {
 /// `error_unexpected!` or `error_unexpected_last!` if there are tokens on which
 /// an error could reasonably be triggered.
 ///
-/// ```rust,ignore
+/// ```rust,compile_fail
 /// use tt_call::error_eof;
 ///
 /// fn main() {
@@ -72,7 +72,7 @@ macro_rules! private_eof {
 /// The compiler's error will indicate the source of the unexpected token to the
 /// user.
 ///
-/// ```rust,ignore
+/// ```rust,compile_fail
 /// use tt_call::error_unexpected_last;
 ///
 /// fn main() {
