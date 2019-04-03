@@ -18,10 +18,10 @@
 /// 5 |     error_unexpected! { true }
 ///   |                         ^^^^
 /// ```
-#[macro_export(local_inner_macros)]
+#[macro_export]
 macro_rules! error_unexpected {
     ($($tokens:tt)+) => {
-        private_unexpected! {
+        $crate::private_unexpected! {
             $($tokens)*
         }
     };
@@ -54,10 +54,10 @@ macro_rules! private_unexpected {
 /// 5 |     error_eof!{}
 ///   |     ^^^^^^^^^^^^
 /// ```
-#[macro_export(local_inner_macros)]
+#[macro_export]
 macro_rules! error_eof {
     () => {
-        private_eof!{}
+        $crate::private_eof!{}
     };
 }
 
@@ -87,26 +87,26 @@ macro_rules! private_eof {
 /// 5 |     error_unexpected_last! { aaa bbb ccc }
 ///   |                                      ^^^
 /// ```
-#[macro_export(local_inner_macros)]
+#[macro_export]
 macro_rules! error_unexpected_last {
     ($($tokens:tt)+) => {
-        private_unexpected_last! {
+        $crate::private_unexpected_last! {
             $($tokens)*
         }
     };
 }
 
 #[doc(hidden)]
-#[macro_export(local_inner_macros)]
+#[macro_export]
 macro_rules! private_unexpected_last {
     ($last:tt) => {
-        error_unexpected! {
+        $crate::error_unexpected! {
             $last
         }
     };
 
     ($skip:tt $($rest:tt)*) => {
-        private_unexpected_last! {
+        $crate::private_unexpected_last! {
             $($rest)*
         }
     };

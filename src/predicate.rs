@@ -8,13 +8,13 @@
 /// # Output
 ///
 ///   - `output = [{ true }]`
-#[macro_export(local_inner_macros)]
+#[macro_export]
 macro_rules! tt_true {
     {
         $caller:tt
         input = [{ $($in:tt)* }]
     } => {
-        tt_return! {
+        $crate::tt_return! {
             $caller
             output = [{ true }]
         }
@@ -31,13 +31,13 @@ macro_rules! tt_true {
 /// # Output
 ///
 ///   - `output = [{ false }]`
-#[macro_export(local_inner_macros)]
+#[macro_export]
 macro_rules! tt_false {
     {
         $caller:tt
         input = [{ $($in:tt)* }]
     } => {
-        tt_return! {
+        $crate::tt_return! {
             $caller
             output = [{ false }]
         }
@@ -54,13 +54,13 @@ macro_rules! tt_false {
 /// # Output
 ///
 ///   - `is_comma = [{` either true or false `}]`
-#[macro_export(local_inner_macros)]
+#[macro_export]
 macro_rules! tt_is_comma {
     {
         $caller:tt
         input = [{ , }]
     } => {
-        tt_return! {
+        $crate::tt_return! {
             $caller
             is_comma = [{ true }]
         }
@@ -70,7 +70,7 @@ macro_rules! tt_is_comma {
         $caller:tt
         input = [{ $other:tt }]
     } => {
-        tt_return! {
+        $crate::tt_return! {
             $caller
             is_comma = [{ false }]
         }
@@ -90,13 +90,13 @@ macro_rules! tt_is_comma {
 /// # Output
 ///
 ///   - `is_ident = [{` either true or false `}]`
-#[macro_export(local_inner_macros)]
+#[macro_export]
 macro_rules! tt_is_ident {
     {
         $caller:tt
         input = [{ $ident:ident }]
     } => {
-        tt_return! {
+        $crate::tt_return! {
             $caller
             is_ident = [{ true }]
         }
@@ -106,7 +106,7 @@ macro_rules! tt_is_ident {
         $caller:tt
         input = [{ $other:tt }]
     } => {
-        tt_return! {
+        $crate::tt_return! {
             $caller
             is_ident = [{ false }]
         }
@@ -124,13 +124,13 @@ macro_rules! tt_is_ident {
 /// # Output
 ///
 ///   - `is_lifetime = [{` either true or false `}]`
-#[macro_export(local_inner_macros)]
+#[macro_export]
 macro_rules! tt_is_lifetime {
     {
         $caller:tt
         input = [{ $lifetime:lifetime }]
     } => {
-        tt_return! {
+        $crate::tt_return! {
             $caller
             is_lifetime = [{ true }]
         }
@@ -140,7 +140,7 @@ macro_rules! tt_is_lifetime {
         $caller:tt
         input = [{ $other:tt }]
     } => {
-        tt_return! {
+        $crate::tt_return! {
             $caller
             is_lifetime = [{ false }]
         }

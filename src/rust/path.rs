@@ -1,12 +1,12 @@
 #[doc(hidden)]
-#[macro_export(local_inner_macros)]
+#[macro_export]
 macro_rules! private_parse_path {
     // Entry point. Dup tokens.
     {
         $caller:tt
         input = [{ $($input:tt)* }]
     } => {
-        private_parse_path! {
+        $crate::private_parse_path! {
             $caller
             tokens = [{ $($input)* }]
             _tokens = [{ $($input)* }]
@@ -19,10 +19,10 @@ macro_rules! private_parse_path {
         tokens = [{ :: $segment:ident $($rest:tt)* }]
         _tokens = [{ $colons:tt $($dup:tt)* }]
     } => {
-        tt_call! {
-            macro = [{ private_parse_possibly_empty_path_after_ident }]
+        $crate::tt_call! {
+            macro = [{ $crate::private_parse_possibly_empty_path_after_ident }]
             input = [{ $($rest)* }]
-            ~~> private_parse_path! {
+            ~~> $crate::private_parse_path! {
                 $caller
                 prefix = [{ $colons $segment }]
             }
@@ -35,10 +35,10 @@ macro_rules! private_parse_path {
         tokens = [{ $segment:ident $($rest:tt)* }]
         _tokens = [{ $($dup:tt)* }]
     } => {
-        tt_call! {
-            macro = [{ private_parse_possibly_empty_path_after_ident }]
+        $crate::tt_call! {
+            macro = [{ $crate::private_parse_possibly_empty_path_after_ident }]
             input = [{ $($rest)* }]
-            ~~> private_parse_path! {
+            ~~> $crate::private_parse_path! {
                 $caller
                 prefix = [{ $segment }]
             }
@@ -52,7 +52,7 @@ macro_rules! private_parse_path {
         path = [{ $($path:tt)* }]
         rest = [{ $($rest:tt)* }]
     } => {
-        tt_return! {
+        $crate::tt_return! {
             $caller
             path = [{ $($prefix)* $($path)* }]
             rest = [{ $($rest)* }]
@@ -62,14 +62,14 @@ macro_rules! private_parse_path {
 }
 
 #[doc(hidden)]
-#[macro_export(local_inner_macros)]
+#[macro_export]
 macro_rules! private_parse_possibly_empty_path_after_ident {
     // Entry point. Dup tokens.
     {
         $caller:tt
         input = [{ $($input:tt)* }]
     } => {
-        private_parse_possibly_empty_path_after_ident! {
+        $crate::private_parse_possibly_empty_path_after_ident! {
             $caller
             path = [{ }]
             tokens = [{ $($input)* }]
@@ -84,7 +84,7 @@ macro_rules! private_parse_possibly_empty_path_after_ident {
         tokens = [{ < > $($rest:tt)* }]
         _tokens = [{ $lt:tt $gt:tt $($dup:tt)* }]
     } => {
-        private_parse_possibly_empty_path_after_close_angle! {
+        $crate::private_parse_possibly_empty_path_after_close_angle! {
             $caller
             path = [{ $($path)* $lt $gt }]
             tokens = [{ $($rest)* }]
@@ -98,7 +98,7 @@ macro_rules! private_parse_possibly_empty_path_after_ident {
         tokens = [{ < }]
         _tokens = [{ $unexpected:tt }]
     } => {
-        error_unexpected! {
+        $crate::error_unexpected! {
             $unexpected
         }
     };
@@ -110,10 +110,10 @@ macro_rules! private_parse_possibly_empty_path_after_ident {
         tokens = [{ < $($rest:tt)+ }]
         _tokens = [{ $lt:tt $($dup:tt)* }]
     } => {
-        tt_call! {
-            macro = [{ private_parse_generic_param }]
+        $crate::tt_call! {
+            macro = [{ $crate::private_parse_generic_param }]
             input = [{ $($rest)* }]
-            ~~> private_parse_in_angle_brackets! {
+            ~~> $crate::private_parse_in_angle_brackets! {
                 $caller
                 prefix = [{ $($path)* $lt }]
             }
@@ -127,7 +127,7 @@ macro_rules! private_parse_possibly_empty_path_after_ident {
         tokens = [{ :: < > $($rest:tt)* }]
         _tokens = [{ $colons:tt $lt:tt $gt:tt $($dup:tt)* }]
     } => {
-        private_parse_possibly_empty_path_after_close_angle! {
+        $crate::private_parse_possibly_empty_path_after_close_angle! {
             $caller
             path = [{ $($path)* $colons $lt $gt }]
             tokens = [{ $($rest)* }]
@@ -141,10 +141,10 @@ macro_rules! private_parse_possibly_empty_path_after_ident {
         tokens = [{ :: < $($rest:tt)+ }]
         _tokens = [{ $colons:tt $lt:tt $($dup:tt)* }]
     } => {
-        tt_call! {
-            macro = [{ private_parse_generic_param }]
+        $crate::tt_call! {
+            macro = [{ $crate::private_parse_generic_param }]
             input = [{ $($rest)* }]
-            ~~> private_parse_in_angle_brackets! {
+            ~~> $crate::private_parse_in_angle_brackets! {
                 $caller
                 prefix = [{ $($path)* $colons $lt }]
             }
@@ -158,10 +158,10 @@ macro_rules! private_parse_possibly_empty_path_after_ident {
         tokens = [{ ($($args:tt)*) $($rest:tt)* }]
         _tokens = [{ $original:tt $($dup:tt)* }]
     } => {
-        tt_call! {
-            macro = [{ private_validate_fn_path_args }]
+        $crate::tt_call! {
+            macro = [{ $crate::private_validate_fn_path_args }]
             tokens = [{ $($args)* }]
-            ~~> private_parse_path_after_fn_args! {
+            ~~> $crate::private_parse_path_after_fn_args! {
                 $caller
                 path = [{ $($path)* $original }]
                 tokens = [{ $($rest)* }]
@@ -176,7 +176,7 @@ macro_rules! private_parse_possibly_empty_path_after_ident {
         tokens = [{ $($tokens:tt)* }]
         _tokens = [{ $($dup:tt)* }]
     } => {
-        private_parse_possibly_empty_path_after_close_angle! {
+        $crate::private_parse_possibly_empty_path_after_close_angle! {
             $caller
             path = [{ $($path)* }]
             tokens = [{ $($tokens)* }]
@@ -185,7 +185,7 @@ macro_rules! private_parse_possibly_empty_path_after_ident {
 }
 
 #[doc(hidden)]
-#[macro_export(local_inner_macros)]
+#[macro_export]
 macro_rules! private_parse_possibly_empty_path_after_close_angle {
     // Entry point. Dup tokens.
     {
@@ -193,7 +193,7 @@ macro_rules! private_parse_possibly_empty_path_after_close_angle {
         path = [{ $($path:tt)* }]
         tokens = [{ $($tokens:tt)* }]
     } => {
-        private_parse_possibly_empty_path_after_close_angle! {
+        $crate::private_parse_possibly_empty_path_after_close_angle! {
             $caller
             path = [{ $($path)* }]
             tokens = [{ $($tokens)* }]
@@ -208,7 +208,7 @@ macro_rules! private_parse_possibly_empty_path_after_close_angle {
         tokens = [{ :: $segment:ident $($rest:tt)* }]
         _tokens = [{ $colons:tt $($dup:tt)* }]
     } => {
-        private_parse_possibly_empty_path_after_ident! {
+        $crate::private_parse_possibly_empty_path_after_ident! {
             $caller
             path = [{ $($path)* $colons $segment }]
             tokens = [{ $($rest)* }]
@@ -223,7 +223,7 @@ macro_rules! private_parse_possibly_empty_path_after_close_angle {
         tokens = [{ :: $($unexpected:tt)+ }]
         _tokens = [{ $($dup:tt)* }]
     } => {
-        error_unexpected! {
+        $crate::error_unexpected! {
             $($unexpected)*
         }
     };
@@ -235,7 +235,7 @@ macro_rules! private_parse_possibly_empty_path_after_close_angle {
         tokens = [{ $($rest:tt)* }]
         _tokens = [{ $($dup:tt)* }]
     } => {
-        tt_return! {
+        $crate::tt_return! {
             $caller
             path = [{ $($path)* }]
             rest = [{ $($rest)* }]
@@ -244,7 +244,7 @@ macro_rules! private_parse_possibly_empty_path_after_close_angle {
 }
 
 #[doc(hidden)]
-#[macro_export(local_inner_macros)]
+#[macro_export]
 macro_rules! private_parse_in_angle_brackets {
     // Entry point. Dup rest tokens.
     {
@@ -253,7 +253,7 @@ macro_rules! private_parse_in_angle_brackets {
         param = [{ $($param:tt)* }]
         rest = [{ $($rest:tt)* }]
     } => {
-        private_parse_in_angle_brackets! {
+        $crate::private_parse_in_angle_brackets! {
             $caller
             prefix = [{ $($path)* }]
             param = [{ $($param)* }]
@@ -270,7 +270,7 @@ macro_rules! private_parse_in_angle_brackets {
         rest = [{ > $($rest:tt)* }]
         _rest = [{ $gt:tt $($dup:tt)* }]
     } => {
-        private_parse_possibly_empty_path_after_close_angle! {
+        $crate::private_parse_possibly_empty_path_after_close_angle! {
             $caller
             path = [{ $($path)* $($param)* $gt }]
             tokens = [{ $($rest)* }]
@@ -285,7 +285,7 @@ macro_rules! private_parse_in_angle_brackets {
         rest = [{ >> $($rest:tt)* }]
         _rest = [{ $($dup:tt)* }]
     } => {
-        tt_return! {
+        $crate::tt_return! {
             $caller
             path = [{ $($path)* $($param)* > }]
             rest = [{ > $($rest)* }]
@@ -300,7 +300,7 @@ macro_rules! private_parse_in_angle_brackets {
         rest = [{ , > $($rest:tt)* }]
         _rest = [{ $comma:tt $gt:tt $($dup:tt)* }]
     } => {
-        private_parse_possibly_empty_path_after_close_angle! {
+        $crate::private_parse_possibly_empty_path_after_close_angle! {
             $caller
             path = [{ $($path)* $($param)* $comma $gt }]
             tokens = [{ $($rest)* }]
@@ -315,7 +315,7 @@ macro_rules! private_parse_in_angle_brackets {
         rest = [{ , >> $($rest:tt)* }]
         _rest = [{ $comma:tt $($dup:tt)* }]
     } => {
-        tt_return! {
+        $crate::tt_return! {
             $caller
             path = [{ $($path)* $($param)* $comma > }]
             rest = [{ > $($rest)* }]
@@ -330,10 +330,10 @@ macro_rules! private_parse_in_angle_brackets {
         rest = [{ , $($rest:tt)+ }]
         _rest = [{ $comma:tt $($dup:tt)* }]
     } => {
-        tt_call! {
-            macro = [{ private_parse_generic_param }]
+        $crate::tt_call! {
+            macro = [{ $crate::private_parse_generic_param }]
             input = [{ $($rest)* }]
-            ~~> private_parse_in_angle_brackets! {
+            ~~> $crate::private_parse_in_angle_brackets! {
                 $caller
                 prefix = [{ $($path)* $($param)* $comma }]
             }
@@ -348,7 +348,7 @@ macro_rules! private_parse_in_angle_brackets {
         rest = [{ $($unexpected:tt)+ }]
         _rest = [{ $($dup:tt)* }]
     } => {
-        error_unexpected! {
+        $crate::error_unexpected! {
             $($unexpected)*
         }
     };
@@ -361,7 +361,7 @@ macro_rules! private_parse_in_angle_brackets {
         rest = [{ }]
         _rest = [{ }]
     } => {
-        error_unexpected_last! {
+        $crate::error_unexpected_last! {
             $($param)*
         }
     };
@@ -369,14 +369,14 @@ macro_rules! private_parse_in_angle_brackets {
 }
 
 #[doc(hidden)]
-#[macro_export(local_inner_macros)]
+#[macro_export]
 macro_rules! private_parse_generic_param {
     // Parse lifetime parameters.
     {
         $caller:tt
         input = [{ $lifetime:lifetime $($rest:tt)* }]
     } => {
-        tt_return! {
+        $crate::tt_return! {
             $caller
             param = [{ $lifetime }]
             rest = [{ $($rest)* }]
@@ -388,10 +388,10 @@ macro_rules! private_parse_generic_param {
         $caller:tt
         input = [{ $assoc:ident = $($rest:tt)+ }]
     } => {
-        tt_call! {
-            macro = [{ parse_type }]
+        $crate::tt_call! {
+            macro = [{ $crate::parse_type }]
             input = [{ $($rest)* }]
-            ~~> private_parse_generic_param! {
+            ~~> $crate::private_parse_generic_param! {
                 $caller
                 assoc = [{ $assoc = }]
             }
@@ -405,7 +405,7 @@ macro_rules! private_parse_generic_param {
         type = [{ $($ty:tt)* }]
         rest = [{ $($rest:tt)* }]
     } => {
-        tt_return! {
+        $crate::tt_return! {
             $caller
             param = [{ $assoc $eq $($ty)* }]
             rest = [{ $($rest)* }]
@@ -417,10 +417,10 @@ macro_rules! private_parse_generic_param {
         $caller:tt
         input = [{ $($input:tt)+ }]
     } => {
-        tt_call! {
-            macro = [{ private_parse_type_with_plus }]
+        $crate::tt_call! {
+            macro = [{ $crate::private_parse_type_with_plus }]
             input = [{ $($input)* }]
-            ~~> private_parse_generic_param! {
+            ~~> $crate::private_parse_generic_param! {
                 $caller
             }
         }
@@ -432,7 +432,7 @@ macro_rules! private_parse_generic_param {
         type = [{ $($ty:tt)* }]
         rest = [{ $($rest:tt)* }]
     } => {
-        tt_return! {
+        $crate::tt_return! {
             $caller
             param = [{ $($ty)* }]
             rest = [{ $($rest)* }]
@@ -441,14 +441,14 @@ macro_rules! private_parse_generic_param {
 }
 
 #[doc(hidden)]
-#[macro_export(local_inner_macros)]
+#[macro_export]
 macro_rules! private_validate_fn_path_args {
     // Function arguments are empty.
     {
         $caller:tt
         tokens = [{ }]
     } => {
-        tt_return! {
+        $crate::tt_return! {
             $caller
         }
     };
@@ -458,10 +458,10 @@ macro_rules! private_validate_fn_path_args {
         $caller:tt
         tokens = [{ $($rest:tt)+ }]
     } => {
-        tt_call! {
-            macro = [{ parse_type }]
+        $crate::tt_call! {
+            macro = [{ $crate::parse_type }]
             input = [{ $($rest)* }]
-            ~~> private_validate_fn_path_args! {
+            ~~> $crate::private_validate_fn_path_args! {
                 $caller
             }
         }
@@ -473,7 +473,7 @@ macro_rules! private_validate_fn_path_args {
         type = [{ $($ty:tt)* }]
         rest = [{ }]
     } => {
-        tt_return! {
+        $crate::tt_return! {
             $caller
         }
     };
@@ -484,7 +484,7 @@ macro_rules! private_validate_fn_path_args {
         type = [{ $($ty:tt)* }]
         rest = [{ , $($rest:tt)* }]
     } => {
-        private_validate_fn_path_args! {
+        $crate::private_validate_fn_path_args! {
             $caller
             tokens = [{ $($rest)* }]
         }
@@ -496,14 +496,14 @@ macro_rules! private_validate_fn_path_args {
         type = [{ $($ty:tt)* }]
         rest = [{ $($unexpected:tt)+ }]
     } => {
-        error_unexpected! {
+        $crate::error_unexpected! {
             $($unexpected)*
         }
     };
 }
 
 #[doc(hidden)]
-#[macro_export(local_inner_macros)]
+#[macro_export]
 macro_rules! private_parse_path_after_fn_args {
     // Entry point. Dup tokens.
     {
@@ -511,7 +511,7 @@ macro_rules! private_parse_path_after_fn_args {
         path = [{ $($path:tt)* }]
         tokens = [{ $($tokens:tt)* }]
     } => {
-        private_parse_path_after_fn_args! {
+        $crate::private_parse_path_after_fn_args! {
             $caller
             path = [{ $($path)* }]
             tokens = [{ $($tokens)* }]
@@ -526,10 +526,10 @@ macro_rules! private_parse_path_after_fn_args {
         tokens = [{ -> $($rest:tt)* }]
         _tokens = [{ $arrow:tt $($dup:tt)* }]
     } => {
-        tt_call! {
-            macro = [{ parse_type }]
+        $crate::tt_call! {
+            macro = [{ $crate::parse_type }]
             input = [{ $($rest)* }]
-            ~~> private_parse_path_after_fn_args! {
+            ~~> $crate::private_parse_path_after_fn_args! {
                 $caller
                 path = [{ $($path)* $arrow }]
             }
@@ -543,7 +543,7 @@ macro_rules! private_parse_path_after_fn_args {
         tokens = [{ $($rest:tt)* }]
         _tokens = [{ $($dup:tt)* }]
     } => {
-        tt_return! {
+        $crate::tt_return! {
             $caller
             path = [{ $($path)* }]
             rest = [{ $($rest)* }]
@@ -557,7 +557,7 @@ macro_rules! private_parse_path_after_fn_args {
         type = [{ $($ret:tt)* }]
         rest = [{ $($rest:tt)* }]
     } => {
-        tt_return! {
+        $crate::tt_return! {
             $caller
             path = [{ $($path)* $($ret)* }]
             rest = [{ $($rest)* }]

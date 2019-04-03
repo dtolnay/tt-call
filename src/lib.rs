@@ -449,7 +449,7 @@ mod unexpected;
 ///     println!("{}", is_ident); // prints true or false
 /// }
 /// ```
-#[macro_export(local_inner_macros)]
+#[macro_export]
 macro_rules! tt_call {
     // Call macro and expand into the tokens of its one return value.
     {
@@ -459,7 +459,7 @@ macro_rules! tt_call {
         )*
     } => {
         $($m)::* ! {
-            (__tt_call_private tt_identity_return! {})
+            (__tt_call_private $crate::tt_identity_return! {})
             $(
                 $input = [{ $($tokens)* }]
             )*
@@ -536,7 +536,7 @@ macro_rules! tt_call {
 }
 
 #[doc(hidden)]
-#[macro_export(local_inner_macros)]
+#[macro_export]
 macro_rules! tt_identity_return {
     // Macro returned one value.
     {
@@ -558,7 +558,7 @@ macro_rules! tt_identity_return {
         $name:ident = [{ $($output:tt)* }]
         rest = [{ $($unexpected:tt)* }]
     } => {
-        error_unexpected! {
+        $crate::error_unexpected! {
             $($unexpected)*
         }
     };
@@ -612,7 +612,7 @@ macro_rules! tt_identity_return {
 ///     println!("{}", is);
 /// }
 /// ```
-#[macro_export(local_inner_macros)]
+#[macro_export]
 macro_rules! tt_return {
     {
         $caller:tt
@@ -620,7 +620,7 @@ macro_rules! tt_return {
             $output:ident = [{ $($tokens:tt)* }]
         )*
     } => {
-        private_return! {
+        $crate::private_return! {
             $caller
             $(
                 $output = [{ $($tokens)* }]
@@ -702,7 +702,7 @@ macro_rules! private_return {
 ///     assert_eq!(3, parse_until_comma!(1 + 2, three, four));
 /// }
 /// ```
-#[macro_export(local_inner_macros)]
+#[macro_export]
 macro_rules! tt_if {
     {
         condition = [{ $($condition:ident)::* }]
@@ -710,10 +710,10 @@ macro_rules! tt_if {
         true = [{ $($then:tt)* }]
         false = [{ $($else:tt)* }]
     } => {
-        tt_call! {
+        $crate::tt_call! {
             macro = [{ $($condition)::* }]
             input = [{ $($input)* }]
-            ~~> private_if_branch! {
+            ~~> $crate::private_if_branch! {
                 true = [{ $($then)* }]
                 false = [{ $($else)* }]
             }

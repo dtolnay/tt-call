@@ -60,7 +60,7 @@
 ///     println!("{}", add_one(1));
 /// }
 /// ```
-#[macro_export(local_inner_macros)]
+#[macro_export]
 macro_rules! tt_replace {
     {
         $caller:tt
@@ -68,7 +68,7 @@ macro_rules! tt_replace {
         replace_with = [{ $($with:tt)* }]
         input = [{ $($input:tt)* }]
     } => {
-        private_replace! {
+        $crate::private_replace! {
             $caller
             condition = [{ $($condition)::* }]
             replace_with = [{ $($with)* }]
@@ -79,7 +79,7 @@ macro_rules! tt_replace {
 }
 
 #[doc(hidden)]
-#[macro_export(local_inner_macros)]
+#[macro_export]
 macro_rules! private_replace {
     // Arrived at end of input. Return to caller.
     {
@@ -89,7 +89,7 @@ macro_rules! private_replace {
         tokens = [{ $($tokens:tt)* }]
         rest = [{ }]
     } => {
-        tt_return! {
+        $crate::tt_return! {
             $caller
             tokens = [{ $($tokens)* }]
         }
@@ -103,13 +103,13 @@ macro_rules! private_replace {
         tokens = [{ $($tokens:tt)* }]
         rest = [{ ( $($group:tt)* ) $($rest:tt)* }]
     } => {
-        tt_call! {
-            macro = [{ private_replace }]
+        $crate::tt_call! {
+            macro = [{ $crate::private_replace }]
             condition = [{ $($condition)::* }]
             replace_with = [{ $($with)* }]
             tokens = [{ }]
             rest = [{ $($group)* }]
-            ~~> private_replace! {
+            ~~> $crate::private_replace! {
                 $caller
                 condition = [{ $($condition)::* }]
                 replace_with = [{ $($with)* }]
@@ -128,7 +128,7 @@ macro_rules! private_replace {
         after_paren = [{ $($after:tt)* }]
         tokens = [{ $($inside:tt)* }]
     } => {
-        private_replace! {
+        $crate::private_replace! {
             $caller
             condition = [{ $($condition)::* }]
             replace_with = [{ $($with)* }]
@@ -145,13 +145,13 @@ macro_rules! private_replace {
         tokens = [{ $($tokens:tt)* }]
         rest = [{ [ $($group:tt)* ] $($rest:tt)* }]
     } => {
-        tt_call! {
-            macro = [{ private_replace }]
+        $crate::tt_call! {
+            macro = [{ $crate::private_replace }]
             condition = [{ $($condition)::* }]
             replace_with = [{ $($with)* }]
             tokens = [{ }]
             rest = [{ $($group)* }]
-            ~~> private_replace! {
+            ~~> $crate::private_replace! {
                 $caller
                 condition = [{ $($condition)::* }]
                 replace_with = [{ $($with)* }]
@@ -170,7 +170,7 @@ macro_rules! private_replace {
         after_bracket = [{ $($after:tt)* }]
         tokens = [{ $($inside:tt)* }]
     } => {
-        private_replace! {
+        $crate::private_replace! {
             $caller
             condition = [{ $($condition)::* }]
             replace_with = [{ $($with)* }]
@@ -187,13 +187,13 @@ macro_rules! private_replace {
         tokens = [{ $($tokens:tt)* }]
         rest = [{ { $($group:tt)* } $($rest:tt)* }]
     } => {
-        tt_call! {
-            macro = [{ private_replace }]
+        $crate::tt_call! {
+            macro = [{ $crate::private_replace }]
             condition = [{ $($condition)::* }]
             replace_with = [{ $($with)* }]
             tokens = [{ }]
             rest = [{ $($group)* }]
-            ~~> private_replace! {
+            ~~> $crate::private_replace! {
                 $caller
                 condition = [{ $($condition)::* }]
                 replace_with = [{ $($with)* }]
@@ -212,7 +212,7 @@ macro_rules! private_replace {
         after_brace = [{ $($after:tt)* }]
         tokens = [{ $($inside:tt)* }]
     } => {
-        private_replace! {
+        $crate::private_replace! {
             $caller
             condition = [{ $($condition)::* }]
             replace_with = [{ $($with)* }]
@@ -229,11 +229,11 @@ macro_rules! private_replace {
         tokens = [{ $($tokens:tt)* }]
         rest = [{ $first:tt $($rest:tt)* }]
     } => {
-        tt_if! {
+        $crate::tt_if! {
             condition = [{ $($condition)::* }]
             input = [{ $first }]
             true = [{
-                private_replace! {
+                $crate::private_replace! {
                     $caller
                     condition = [{ $($condition)::* }]
                     replace_with = [{ $($with)* }]
@@ -242,7 +242,7 @@ macro_rules! private_replace {
                 }
             }]
             false = [{
-                private_replace! {
+                $crate::private_replace! {
                     $caller
                     condition = [{ $($condition)::* }]
                     replace_with = [{ $($with)* }]

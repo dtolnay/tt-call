@@ -1,12 +1,12 @@
 #[doc(hidden)]
-#[macro_export(local_inner_macros)]
+#[macro_export]
 macro_rules! private_parse_expr {
     // Entry point. Dup tokens.
     {
         $caller:tt
         input = [{ $($input:tt)* }]
     } => {
-        private_parse_expr! {
+        $crate::private_parse_expr! {
             $caller
             tokens = [{ $($input)* }]
             _tokens = [{ $($input)* }]
@@ -20,7 +20,7 @@ macro_rules! private_parse_expr {
         tokens = [{ $e:expr }]
         _tokens = [{ $($tokens:tt)* }]
     } => {
-        tt_return! {
+        $crate::tt_return! {
             $caller
             expr = [{ $($tokens)* }]
             rest = [{ }]
@@ -33,7 +33,7 @@ macro_rules! private_parse_expr {
         tokens = [{ $($unexpected:tt)+ }]
         _tokens = [{ $($dup:tt)* }]
     } => {
-        error_unexpected! {
+        $crate::error_unexpected! {
             $($unexpected)*
         }
     };
