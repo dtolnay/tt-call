@@ -21,7 +21,7 @@
 //! tt-call = "1.0"
 //! ```
 //!
-//! *Version requirement: tt-call requires a Rust compiler version 1.28 or
+//! *Version requirement: tt-call requires a Rust compiler version 1.31 or
 //! newer.*
 //!
 //!
