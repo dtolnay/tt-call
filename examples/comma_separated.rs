@@ -181,12 +181,15 @@ fn main() {
         fn(s: &str) -> String,
     };
 
-    assert_eq!(MANGLED, [
-        "_std_fs_File",
-        "_ref_mut_str",
-        "_impl_Display",
-        "_fn_s_ref_str_to_String",
-    ]);
+    assert_eq!(
+        MANGLED,
+        [
+            "_std_fs_File",
+            "_ref_mut_str",
+            "_impl_Display",
+            "_fn_s_ref_str_to_String",
+        ]
+    );
 
     println!("{:#?}", MANGLED);
 }

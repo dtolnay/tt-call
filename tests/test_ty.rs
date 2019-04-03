@@ -86,7 +86,7 @@ fn test_parse_type() {
     // Type macros
     assert_type!(m!());
     assert_type!(m![]);
-    assert_type!(m!{});
+    assert_type!(m! {});
     assert_type!(::m!());
     assert_type!(::m!(u8));
     assert_type!(crate::m!(u8));
@@ -108,7 +108,9 @@ fn test_futures() {
                                 Client,
                                 ipc::LenDelimited<protobuf::Message::Message>,
                             >,
-                            fn(tokio_core::io::EasyBuf)
+                            fn(
+                                tokio_core::io::EasyBuf,
+                            )
                                 -> std::result::Result<protobuf::Message::Message, std::io::Error>,
                             std::result::Result<protobuf::Message::Message, std::io::Error>,
                         >,
@@ -121,7 +123,7 @@ fn test_futures() {
                                     ipc::LenDelimited<protobuf::Message::Message>,
                                 >,
                                 fn(
-                                    tokio_core::io::EasyBuf
+                                    tokio_core::io::EasyBuf,
                                 ) -> std::result::Result<
                                     protobuf::Message::Message,
                                     std::io::Error,
@@ -141,7 +143,7 @@ fn test_futures() {
                                     ipc::LenDelimited<protobuf::Message::Message>,
                                 >,
                                 fn(
-                                    tokio_core::io::EasyBuf
+                                    tokio_core::io::EasyBuf,
                                 ) -> std::result::Result<
                                     protobuf::Message::Message,
                                     std::io::Error,
@@ -157,7 +159,7 @@ fn test_futures() {
                                         ipc::LenDelimited<protobuf::Message::Message>,
                                     >,
                                     fn(
-                                        tokio_core::io::EasyBuf
+                                        tokio_core::io::EasyBuf,
                                     ) -> std::result::Result<
                                         protobuf::Message::Message,
                                         std::io::Error,

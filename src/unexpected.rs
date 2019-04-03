@@ -57,7 +57,7 @@ macro_rules! private_unexpected {
 #[macro_export]
 macro_rules! error_eof {
     () => {
-        $crate::private_eof!{}
+        $crate::private_eof! {}
     };
 }
 
