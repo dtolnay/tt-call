@@ -23,7 +23,7 @@ use tt_call::{parse_type, tt_call, tt_return};
 ///
 /// # Example
 ///
-/// ```rust
+/// ```
 /// tt_call! {
 ///     macro = [{ comma_separated }]
 ///     parser = [{ parse_type }]
@@ -35,7 +35,7 @@ use tt_call::{parse_type, tt_call, tt_return};
 /// }
 /// ```
 ///
-/// ```
+/// ```console
 /// element = [{ std :: fs :: File }]
 /// element = [{ & 'a mut str }]
 /// ```
