@@ -3,6 +3,3 @@ error: no rules expected the token `fn`
   |
 5 |     input = [{ fn }]
   |                ^^ no rules expected this token in macro call
-
-error: aborting due to previous error
-

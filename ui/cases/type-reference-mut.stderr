@@ -3,6 +3,3 @@ error: no rules expected the token `mut`
   |
 5 |     input = [{ &mut }]
   |                 ^^^ no rules expected this token in macro call
-
-error: aborting due to previous error
-

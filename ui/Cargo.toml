@@ -10,5 +10,5 @@ name = "tt-call-tests"
 path = "main.rs"
 
 [dev-dependencies]
-compiletest = { package = "compiletest_rs", version = "0.3", features = ["stable"] }
+trybuild = "1.0"
 tt-call = { path = ".." }

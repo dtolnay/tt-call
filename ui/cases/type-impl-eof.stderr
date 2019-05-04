@@ -3,6 +3,3 @@ error: no rules expected the token `impl`
   |
 5 |     input = [{ impl }]
   |                ^^^^ no rules expected this token in macro call
-
-error: aborting due to previous error
-
