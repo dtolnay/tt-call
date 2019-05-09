@@ -11,6 +11,7 @@ edition = "2018"
 
 [dev-dependencies]
 syn = { version = "0.15", features = ["extra-traits"] }
+trybuild = "1.0"
 
 [badges]
 travis-ci = { repository = "dtolnay/tt-call" }

@@ -5,7 +5,6 @@ matrix:
     - rust: nightly
       script:
         - cargo test
-        - cargo test --manifest-path ui/Cargo.toml
         - cargo run --example replace
         - cargo run --example comma_separated
     - rust: beta
