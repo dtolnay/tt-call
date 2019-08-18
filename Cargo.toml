@@ -1,6 +1,6 @@
 [package]
 name = "tt-call"
-version = "1.0.5"
+version = "1.0.6"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
 license = "MIT OR Apache-2.0"
 description = "Token tree calling convention"
