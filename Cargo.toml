@@ -10,7 +10,7 @@ readme = "README.md"
 edition = "2018"
 
 [dev-dependencies]
-rustversion = "0.1"
+rustversion = "1.0"
 syn = { version = "1.0", features = ["extra-traits"] }
 trybuild = "1.0"
 
