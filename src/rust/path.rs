@@ -16,8 +16,8 @@ macro_rules! private_parse_path {
     // Parse absolute path.
     {
         $caller:tt
-        tokens = [{ :: $segment:ident $($rest:tt)* }]
-        _tokens = [{ $colons:tt $($dup:tt)* }]
+        tokens = [{ :: $_segment:ident $($rest:tt)* }]
+        _tokens = [{ $colons:tt $segment:tt $($dup:tt)* }]
     } => {
         $crate::tt_call! {
             macro = [{ $crate::private_parse_possibly_empty_path_after_ident }]
@@ -32,8 +32,8 @@ macro_rules! private_parse_path {
     // Parse relative path.
     {
         $caller:tt
-        tokens = [{ $segment:ident $($rest:tt)* }]
-        _tokens = [{ $($dup:tt)* }]
+        tokens = [{ $_segment:ident $($rest:tt)* }]
+        _tokens = [{ $segment:tt $($dup:tt)* }]
     } => {
         $crate::tt_call! {
             macro = [{ $crate::private_parse_possibly_empty_path_after_ident }]
@@ -205,8 +205,8 @@ macro_rules! private_parse_possibly_empty_path_after_close_angle {
     {
         $caller:tt
         path = [{ $($path:tt)* }]
-        tokens = [{ :: $segment:ident $($rest:tt)* }]
-        _tokens = [{ $colons:tt $($dup:tt)* }]
+        tokens = [{ :: $_segment:ident $($rest:tt)* }]
+        _tokens = [{ $colons:tt $segment:tt $($dup:tt)* }]
     } => {
         $crate::private_parse_possibly_empty_path_after_ident! {
             $caller
