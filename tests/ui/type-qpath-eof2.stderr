@@ -1,10 +1,5 @@
 error: no rules expected the token `T`
- --> $DIR/type-qpath-eof2.rs:3:1
+ --> $DIR/type-qpath-eof2.rs:5:17
   |
-3 | / tt_call! {
-4 | |     macro = [{ parse_type }]
-5 | |     input = [{ <T }]
-6 | | }
-  | |_^ no rules expected this token in macro call
-  |
-  = note: this error originates in a macro (in Nightly builds, run with -Z macro-backtrace for more info)
+5 |     input = [{ <T }]
+  |                 ^ no rules expected this token in macro call
