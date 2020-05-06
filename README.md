@@ -1,7 +1,7 @@
 Token Tree Calling Convention
 =============================
 
-[![Build Status](https://api.travis-ci.org/dtolnay/tt-call.svg?branch=master)](https://travis-ci.org/dtolnay/tt-call)
+[![Build Status](https://img.shields.io/github/workflow/status/dtolnay/tt-call/CI/master)](https://github.com/dtolnay/tt-call/actions?query=branch%3Amaster)
 [![Latest Version](https://img.shields.io/crates/v/tt-call.svg)](https://crates.io/crates/tt-call)
 [![Rust Documentation](https://img.shields.io/badge/api-rustdoc-blue.svg)](https://docs.rs/tt-call/1.0/tt_call/)
 
