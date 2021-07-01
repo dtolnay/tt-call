@@ -342,7 +342,7 @@
 //! [`parse_type!`]: macro.parse_type.html
 
 #![no_std]
-#![doc(html_root_url = "https://docs.rs/tt-call/1.0.7")]
+#![doc(html_root_url = "https://docs.rs/tt-call/1.0.8")]
 
 mod predicate;
 mod replace;
