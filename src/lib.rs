@@ -340,7 +340,7 @@
 //! [`examples/replace.rs`]: https://github.com/dtolnay/tt-call/blob/master/examples/replace.rs
 //! [`examples/comma_separated.rs`]: https://github.com/dtolnay/tt-call/blob/master/examples/comma_separated.rs
 //! [`parse_type!`]: macro.parse_type.html
-
+#![no_std]
 #![doc(html_root_url = "https://docs.rs/tt-call/1.0.7")]
 
 mod predicate;
