@@ -8,6 +8,7 @@ repository = "https://github.com/dtolnay/tt-call"
 documentation = "https://docs.rs/tt-call"
 readme = "README.md"
 edition = "2018"
+rust-version = "1.31"
 
 [dev-dependencies]
 rustversion = "1.0"
