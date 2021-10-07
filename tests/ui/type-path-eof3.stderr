@@ -1,5 +1,5 @@
 error: no rules expected the token `,`
- --> $DIR/type-path-eof3.rs:5:19
+ --> $DIR/tests/ui/type-path-eof3.rs:5:19
   |
 5 |     input = [{ S<T, }]
   |                   ^ no rules expected this token in macro call

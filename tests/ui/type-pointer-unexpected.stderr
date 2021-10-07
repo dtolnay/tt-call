@@ -1,5 +1,5 @@
 error: no rules expected the token `mutable`
- --> $DIR/type-pointer-unexpected.rs:5:17
+ --> $DIR/tests/ui/type-pointer-unexpected.rs:5:17
   |
 5 |     input = [{ *mutable }]
   |                 ^^^^^^^ no rules expected this token in macro call

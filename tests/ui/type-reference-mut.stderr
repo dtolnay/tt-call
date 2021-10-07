@@ -1,5 +1,5 @@
 error: no rules expected the token `mut`
- --> $DIR/type-reference-mut.rs:5:17
+ --> $DIR/tests/ui/type-reference-mut.rs:5:17
   |
 5 |     input = [{ &mut }]
   |                 ^^^ no rules expected this token in macro call

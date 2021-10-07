@@ -1,5 +1,5 @@
 error: no rules expected the token `@`
- --> $DIR/type-qpath-unexpected1.rs:5:19
+ --> $DIR/tests/ui/type-qpath-unexpected1.rs:5:19
   |
 5 |     input = [{ <T @ }]
   |                   ^ no rules expected this token in macro call

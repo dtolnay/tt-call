@@ -1,5 +1,5 @@
 error: no rules expected the token `*`
- --> $DIR/type-pointer-asterisk.rs:5:16
+ --> $DIR/tests/ui/type-pointer-asterisk.rs:5:16
   |
 5 |     input = [{ * }]
   |                ^ no rules expected this token in macro call
