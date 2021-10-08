@@ -1,5 +1,5 @@
 error: no rules expected the token `fn`
- --> $DIR/tests/ui/type-fn-eof.rs:5:16
+ --> tests/ui/type-fn-eof.rs:5:16
   |
 5 |     input = [{ fn }]
   |                ^^ no rules expected this token in macro call

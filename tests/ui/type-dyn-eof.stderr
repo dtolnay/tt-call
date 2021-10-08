@@ -1,5 +1,5 @@
 error: no rules expected the token `dyn`
- --> $DIR/tests/ui/type-dyn-eof.rs:5:16
+ --> tests/ui/type-dyn-eof.rs:5:16
   |
 5 |     input = [{ dyn }]
   |                ^^^ no rules expected this token in macro call

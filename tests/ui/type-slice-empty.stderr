@@ -1,5 +1,5 @@
 error: no rules expected the token `]`
- --> $DIR/tests/ui/type-slice-empty.rs:5:17
+ --> tests/ui/type-slice-empty.rs:5:17
   |
 5 |     input = [{ [] }]
   |                 ^ no rules expected this token in macro call

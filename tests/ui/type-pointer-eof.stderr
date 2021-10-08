@@ -1,5 +1,5 @@
 error: no rules expected the token `const`
- --> $DIR/tests/ui/type-pointer-eof.rs:5:17
+ --> tests/ui/type-pointer-eof.rs:5:17
   |
 5 |     input = [{ *const }]
   |                 ^^^^^ no rules expected this token in macro call

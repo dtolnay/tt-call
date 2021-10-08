@@ -1,5 +1,5 @@
 error: no rules expected the token `@`
- --> $DIR/tests/ui/type-fn-arg-unexpected.rs:5:19
+ --> tests/ui/type-fn-arg-unexpected.rs:5:19
   |
 5 |     input = [{ fn(@) }]
   |                   ^ no rules expected this token in macro call

@@ -1,5 +1,5 @@
 error: no rules expected the token `impl`
- --> $DIR/tests/ui/type-impl-eof.rs:5:16
+ --> tests/ui/type-impl-eof.rs:5:16
   |
 5 |     input = [{ impl }]
   |                ^^^^ no rules expected this token in macro call

@@ -1,5 +1,5 @@
 error: no rules expected the token `@`
- --> $DIR/tests/ui/type-array-bad-len.rs:5:20
+ --> tests/ui/type-array-bad-len.rs:5:20
   |
 5 |     input = [{ [T; @] }]
   |                    ^ no rules expected this token in macro call
