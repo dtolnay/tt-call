@@ -1,6 +1,6 @@
 [package]
 name = "tt-call"
-version = "1.0.8"
+version = "1.0.9"
 authors = ["David Tolnay <dtolnay@gmail.com>"]
 description = "Token tree calling convention"
 documentation = "https://docs.rs/tt-call"

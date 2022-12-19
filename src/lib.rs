@@ -342,7 +342,7 @@
 //! [`parse_type!`]: macro.parse_type.html
 
 #![no_std]
-#![doc(html_root_url = "https://docs.rs/tt-call/1.0.8")]
+#![doc(html_root_url = "https://docs.rs/tt-call/1.0.9")]
 #![allow(clippy::module_name_repetitions, clippy::needless_doctest_main)]
 
 mod predicate;
