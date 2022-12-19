@@ -6,7 +6,6 @@ description = "Token tree calling convention"
 documentation = "https://docs.rs/tt-call"
 edition = "2018"
 license = "MIT OR Apache-2.0"
-readme = "README.md"
 repository = "https://github.com/dtolnay/tt-call"
 rust-version = "1.31"
 
